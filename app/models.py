@@ -1,7 +1,7 @@
 from app import db
 
 class User(db.Model):
-	_id = db.Column(db.Integer, primary_key=True)
+	id = db.Column(db.Integer, primary_key=True)
 	username = db.Column(db.String(64), index=True, unique=True)
 	password = db.Column(db.String(260))
 	email = db.Column(db.String(120), unique=True)
@@ -10,8 +10,8 @@ class User(db.Model):
 		return '<User %r>' % (self.username)
 
 class Interests(db.Model): 
-	_id = db.Column(db.Integer, primary_key=True)
-	user_id = db.Column(db.Integer, db.ForeignKey('user._id'))
+	id = db.Column(db.Integer, primary_key=True)
+	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 	books = db.Column(db.String(10))
 	movies = db.Column(db.String(10))
 	tvshows = db.Column(db.String(10))
@@ -22,4 +22,4 @@ class Interests(db.Model):
 	dreamcity = db.Column(db.String(10))
 	
 	def __repr__(self):
-		return '<Interest %d>' % _id
+		return '<Interest %d>' % id

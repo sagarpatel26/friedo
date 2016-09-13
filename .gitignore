@@ -73,3 +73,5 @@ flaskenv/
 .ropeproject
 #for sqldb
 *.db
+#swapfile created by vi
+*.swp

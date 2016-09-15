@@ -1,0 +1,154 @@
+{
+	
+	"questions":[
+	
+		{
+			"question":"What is your most prefered Books Genres?",
+			"options":[
+				
+				"Comedy",
+			    "Horror",
+				"Realistic fiction",
+				"Romance Novel",
+				"Satire",
+				"Tragedy",
+				"Crime/Detective",
+				"Mystery/Thrillers",
+				"Science Fiction",
+				"Fairy Tails",
+				"Biographies",
+				"Other Non-Fiction(Journalism, Memoirs, etc.)"
+			]
+		}, 
+
+		{
+			"question":"What kind of Movies do you enjoy the most?",
+			"options":[
+			
+				"Action", 
+				"Animated",
+				"Adventure",
+				"Comedy",
+				"Motivational",
+				"Documentaries",
+				"Crime/Spy/Thrillers",
+				"Family Drama",
+				"Romance/Love Stories", 
+				"Historical",
+				"Political",
+				"SciFy", 
+				"Saga"
+			]
+		},
+
+		{
+		
+			"question":"Which of the following TV Shows you have liked the most?",
+			"options":[
+			
+				"Game of Thrones",
+				"Suits",
+				"Mr. Robot",
+				"Sherlock",
+				"Full Metal Alchemist Brotherhood/Steins Gate/Death Note or other Animes",
+				"Friends",
+				"House of Cards",
+				"Silicon Valley",
+				"Breaking Bad",
+				"Arrow/Flash",
+				"Vampire Diaries/Originals",
+				"Big Bang Theory/How I met your Mother",
+				"Narcos"
+			]
+		},
+
+		{
+			"question":"Which couisines do you enjoy the most?",
+			"options":[
+			
+				"Gujarati",
+				"South Indian",
+				"Chinese",
+				"Italian",
+				"Fast Food",
+				"Indian Chaat",
+				"Punjabi",
+				"Sea Food",
+				"Mexican"
+			]
+		},
+
+		{
+			"question":"What are your Hobbies?",
+			"options":[
+			
+				"Reading Books",
+				"Video Games",
+				"Indoor Games",
+				"Outdoor Games",
+				"Hanging out with Friends",
+				"Photography", 
+				"Watching Movies/TV Series",
+				"Studying/Reading Academic Stuff",
+				"Surfing Internet",
+				"Art/Painting",
+				"Dancing",
+				"Singing",
+				"Puzzle/Problem Solving"
+			]
+		
+		},
+
+		{
+			"question":"What are some of the things that you hate the most?",
+			"options":[
+			
+				"Waking up Early !!",
+				"Arrogant people",
+				"Politics",
+				"Dishonesty",
+				"People breaking the queue",
+				"Egoist",
+				"Untidiness"
+			]
+		},
+
+		{
+			"question":"What are some of the things that you wish to fullfill in life?",
+			"options":[
+			
+				"Become a Pro Programmer !",
+				"Adventure Sports: Sky Diving/Bungee/Snorkeling",
+				"Travel Around the world",
+				"Learn a new Language",
+				"Make a difference in  someone's Life",
+				"Fall in a True Love",
+				"Start a Business",
+				"Mentor Someone",
+				"Regularly taking break, to explore something new!!"
+			]
+		},
+
+		{
+			"question":"What are some of the Cities that you wish to settle in?",
+			"options":[
+			
+				"Mumbai",
+				"New York City",
+				"San Francisco",
+				"Tokyo",
+				"Paris",
+				"Seoul",
+				"Los Angles",
+				"Berlin",
+				"Banglore",
+				"Delhi",
+				"Sydney",
+				"London",
+				"Your Hometown"
+			]
+		}
+	
+	]
+
+}

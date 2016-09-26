@@ -1,0 +1,2 @@
+# FriedoApp
+Android Friedo App

@@ -14,4 +14,6 @@ api = Api(app)
 
 auth = HTTPBasicAuth()
 
+SCORE_THRESHOLD = 0.1
+
 from app import views, models, restserver

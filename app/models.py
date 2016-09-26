@@ -89,4 +89,4 @@ class Interests(db.Model):
 		self.dreamcity = other.dreamcity
 	
 	def __repr__(self):
-		return '<Interest %d>' % id
+		return '<Interest %r>' % self.id

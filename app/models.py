@@ -1,4 +1,7 @@
-from app import db
+from app import db, app
+from itsdangerous import (TimedJSONWebSignatureSerializer as Serializer, BadSignature, SignatureExpired)
+from werkzeug.security import generate_password_hash, check_password_hash
+
 
 class User(db.Model):
 	
@@ -8,13 +11,35 @@ class User(db.Model):
 	email = db.Column(db.String(120), unique=True)
 
 	def __init__(self, username, password, email):
-		#TODO: hash password
 		self.username = username
-		self.password = password
+		self.password = generate_password_hash(password)
 		self.email    = email
 
 	def __repr__(self):
 		return '<User %r>' % (self.username)
+
+
+	def hash_password(self, password):
+		self.password_hash = pwd_context.encrypt(password)
+	
+	def verify_password(self, password):
+		return check_password_hash(self.password, password)
+	
+	def generate_auth_token(self, expiration=600):
+		s = Serializer(app.config['SECRET_KEY'], expires_in=expiration)
+		return s.dumps({'id': self.id})
+
+	@staticmethod
+	def verify_auth_token(token):
+		s= Serializer(app.config['SECRET_KEY'])
+		try:
+			data = s.loads(token)
+		except SignatureExpired:
+			return None    # valid token, but expired
+		except BadSignature:
+			return None    # invalid token
+		user = User.query.get(data['id'])
+		return user
 
 class Interests(db.Model): 
 

@@ -1,7 +1,8 @@
-from flask import jsonify, abort, make_response
+from flask import jsonify, abort, make_response, request, g, url_for
 from flask_restful import Resource, reqparse, fields, marshal
-from app import app, db, api
+from app import app, db, api, auth
 from models import User, Interests
+
 
 user_fields     = { 'id':fields.Integer, 'username':fields.String, 'email':fields.String }  
 interest_fields = { 'user_id':fields.Integer, 
@@ -13,6 +14,22 @@ interest_fields = { 'user_id':fields.Integer,
 					'hate':fields.String,
 					'dreams':fields.String,
 					'dreamcity':fields.String }
+
+
+@auth.verify_password
+def verify_password(username_or_token, password):
+    
+	# first try to authenticate by token
+	user = User.verify_auth_token(username_or_token)
+	
+	if not user:
+	# try to authenticate with username/password
+		user = User.query.filter_by(username=username_or_token).first()
+		if not user or not user.verify_password(password):
+			return False
+
+	g.user = user
+	return True
 
 class UserAPI(Resource):
 #	decorators = [auth.login_required]
@@ -129,3 +146,19 @@ api.add_resource(UserAPI, '/api/users/<int:id>', endpoint='user')
 api.add_resource(UserAPI, '/api/users', endpoint='user_add')
 api.add_resource(InterestsAPI, '/api/interests/<int:user_id>', endpoint='interests')
 api.add_resource(InterestsAPI, '/api/interests', endpoint='interests_add')
+
+
+
+
+
+@app.route('/api/token')
+@auth.login_required
+def get_auth_token():
+	token = g.user.generate_auth_token(600)
+	return jsonify({'token': token.decode('ascii'), 'duration': 600})
+
+@app.route('/test/lr')
+@auth.login_required
+def test_lr():
+	return jsonify({'message':'this is secured!!'})
+

@@ -23,7 +23,7 @@ def login():
 		return 'No user found!'
 
 	print user.password, password
-	if password != user.password:
+	if not user.verify_password(password):
 		return 'Wrong Password!'
 	
 	return 'OK'+str(user.id)

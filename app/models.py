@@ -71,7 +71,7 @@ class Interests(db.Model):
 		self.tvshows = tvshows
 		self.food = food
 		self.hobbies = hobbies
-		self.hate = hate			# DDU, Android
+		self.hate = hate			
 		self.dreams = dreams
 		self.dreamcity = dreamcity
 		
